@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% comment %} {% block titulo %} Autor {% endblock %} {% endcomment %}
+
+{% block contenido %}
+<div class="uk-animation-shake">
+    <dl class="uk-description-list-line">
+        {% for peli in pelicula_list %}
+        <dt>{{peli.titulo}} | Nota media: {{peli.avg_puntuacion | floatformat:"2"}} de 5</dt>
+        <dd>{{peli.fecha_estreno}} | <a href="{{peli.imdb_url}}">{{peli.imdb_url}}</a></dd>
+        {% endfor %}
+    </dl>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% comment %} {% block titulo %} Autor {% endblock %} {% endcomment %}
+
+{% block contenido %}
+<style>
+    li {
+        list-style-type: none;
+        margin-left: 10px;
+    }
+</style>
+<div class="uk-animation-fade">
+    <article class="uk-article">
+        <h1 class="uk-article-title">EJERCICIO DE DJANGO </h1>
+        <p class="uk-article-meta"></p>
+        <p class="uk-article-lead">
+            Se desea construir una pagina web, que permita recomendar a usuarios peliculas en
+            funcion de las puntuaciones que han dado otros usuarios a las peliculas y los gustos de estos.
+            Construir el modelo de datos en Django que almacene la informacion siguiente:
+            <p>
+                <li>
+                    a) Usuario: IdUsuario, Edad, Sexo(M,F), Ocupacion, CodigoPostal.
+                </li>
+                <li>
+                    b) Pelicula: IdPelicula, Titulo, FechaEstreno, IMDbURL, Categorias.
+                </li>
+                <li>
+                    c) Categoria: IdCategoria, Nombre.
+                </li>
+                <li>
+                    d) Ocupacion: Nombre
+                </li>
+                <li>
+                    e) Puntuacion: Almacena las puntaciones de usuarios a peliculas.
+                </li>
+            </p>
+            <p class="uk-article-lead">
+                Las puntuaciones son numeros enteros entre 1 y 5.
+                Poblar la base de datos extrayendo los datos del Dataset100K de Movilens
+                http://grouplens.org/datasets/movielens/100k/
+
+                Se pide construir una web con un menu principal en la parte superior de la ventana, que permita las
+                siguientes opciones:
+            </p>
+            <p>
+                <li>
+                    a) Mostrar los usuarios (IdUsuario, Edad, CodigoPostal) agrupados por ocupacion.
+                </li>
+                <li>
+                    b) Mostrar el titulo de las 5 peliculas mejor puntuadas (puntuacion media).
+                </li>
+                <li>
+                    c) Un formulario que, dado un anyo de estreno, muestre todas las peliculas (titulo) que se hayan
+                    estrenado ese año.
+                </li>
+                <li>
+                    d) Un formulario que, dado un idUsuario, muestre todas las peliculas (titulo) que haya puntuado y su
+                    puntuacion.
+                </li>
+            </p>
+        </p>
+
+        <hr class="uk-article-divider">
+
+    </article>
+</div>
+{% endblock %}

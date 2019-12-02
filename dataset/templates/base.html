@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charset='utf-8'>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static "css/uikit.min.css" %}" />
+    <link rel="stylesheet" href="{% static "css/components/accordion.min.css" %}" />
+    <link rel="stylesheet" href="{% static "css/components/datepicker.min.css" %}" />
+    <script src="{% static "js/jquery.min.js" %}"></script>
+    <script src="{% static "js/uikit.min.js" %}"></script>
+    <script src="{% static "js/components/accordion.min.js" %}"></script>
+    <script src="{% static "js/components/datepicker.min.js" %}"></script>
+
+</head>
+
+<body>
+    <div class="uk-container uk-container-center uk-margin-top uk-margin-largSe-bottom">
+        <h1>EJERCICIO DE DJANGO - MOVIELENS 100K</h1>
+        <nav class="uk-navbar">
+            <ul class="uk-navbar-nav">
+                <li class="{% block poblarBDActiva %} {% endblock %}">
+                    <a href="/populate">
+                        Poblar Base de Datos - Acceso Restringido
+                    </a>
+                </li>
+                <li class="{% block ocupacionesActiva %} {% endblock %}">
+                    <a href="/ocupaciones_usuarios">
+                        Lista de Usuarios
+                    </a>
+                </li>
+                <li class="{% block peliculasActiva %} {% endblock %}">
+                    <a href="/mejores_peliculas">
+                        Mejores Peliculas
+                    </a>
+                </li>
+                <li class="{% block buscarPeliculasActiva %} {% endblock %}">
+                    <a href="/busqueda_peliculas">
+                        Buscar Peliculas
+                    </a>
+                </li>
+                <li class="{% block buscarUsuarioActiva %} {% endblock %}">
+                    <a href="/puntuaciones_usuario">
+                        Buscar Usuario
+                    </a>
+                </li>
+                <li><a href="/index.html">Inicio</a></li>
+            </ul>
+        </nav>
+
+        <hr>
+
+        <h1 class="uk-article-title">{% block titulo %} {% endblock %}</h1>
+
+        <div class="contenido">
+            {% block contenido %}{% endblock contenido %}
+        </div>
+    </div>
+</body>
+
+</html>

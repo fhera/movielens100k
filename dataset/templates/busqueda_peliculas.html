@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Búsqueda de películas por fecha {% endblock %}
+
+
+{% block buscarPeliculasActiva %} uk-active {% endblock %}
+
+{% block paginaActiva %}
+<li class="uk-active"><span>Búsqueda de Películas</span></li>
+{% endblock %}
+
+{% block contenido %}
+<div class="uk-animation-slide-bottom">
+    <form class="uk-form" id="formulario" method="POST" action=''>{% csrf_token %}
+        <fieldset>
+            <legend>Búsqueda de Películas</legend>
+            <input type="text" name="year" id="id_year" placeholder="Año de Publicación" />
+            <BR><BR>
+
+            <input class="uk-button" type='submit' value='Realizar Busqueda' />
+        </fieldset>
+    </form>
+
+    <hr>
+
+    {% if pelicula_list %}
+    <h3> Películas del a&ntilde;o: {{ pelicula_list|length }}</h3>
+    <dl class="uk-description-list-line">
+
+        {% for row in pelicula_list %}
+        <dt>{{row.titulo}}</dt>
+        <dd>
+            {{row.fecha_estreno}} |
+            <a target="_blank" href="{{row.imdb_url}}">{{row.imdb_url}}</a>
+        </dd>
+        <dd> Categorias:
+            {% for cat in row.categorias.all %}
+            {{cat.nombre}}
+            {% endfor %}
+        </dd>
+        {% endfor %}
+
+    </dl>
+
+    {% endif %}
+</div>
+{% endblock %}

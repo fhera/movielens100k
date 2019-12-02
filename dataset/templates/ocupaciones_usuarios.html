@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% comment %} {% block titulo %} Autor {% endblock %} {% endcomment %}
+
+{% block contenido %}
+<div class="uk-animation-fade">
+    <div class="uk-accordion" data-uk-accordion="{collapse: false}">
+        {% regroup usuario_list by ocupacion as grouped %}
+        {% for group in grouped %}
+        <h3 class="uk-accordion-title">Ocupación: {{group.grouper}} ({{group.list|length}} usuarios)</h3>
+        <div class="uk-accordion-content">
+            <ul class="uk-list  uk-list-striped">
+                {% for user in group.list %}
+                <li>
+                    <strong>Id Usuario:</strong> {{user.id_usuario}} |
+                    <strong>Edad:</strong> {{user.edad}} |
+                    <strong>Código Postal:</strong> {{user.cp}}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
